@@ -1,27 +1,25 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    kotlin("jvm") version "1.9.0"
-    application
+    kotlin("jvm") apply false
 }
 
 group = "ru.otus.kotlin.professional"
-version = "1.0-SNAPSHOT"
+version = "0.1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
+subprojects {
+    group = rootProject.group
+    version = rootProject.version
 
-tasks.test {
-    useJUnitPlatform()
-}
+    repositories {
+        mavenCentral()
+    }
 
-kotlin {
-    jvmToolchain(8)
-}
-
-application {
-    mainClass.set("MainKt")
+    tasks.withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "17"
+    }
 }
