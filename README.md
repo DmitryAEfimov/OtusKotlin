@@ -23,7 +23,9 @@ pdf/xlsx файлов. Унифицированный поиск и сравне
 * Механизм настройки уведомлений об изменениях в спецификациях по произвольному набору атрибутов
 
 ## Документация по проекту
+
 ### Маркетинг
+
 1. [Стейкхолдеры](docs/marketing/01-stakeholders.md)
 2. [Целевая аудитория](docs/marketing/02-target-audience.md)
 3. [Конкурентный анализ](docs/marketing/03-concurrency.md)
@@ -31,15 +33,48 @@ pdf/xlsx файлов. Унифицированный поиск и сравне
 5. [Пользовательские истории](docs/marketing/05-user-stories.md)
 
 ## Архитектура приложения
+
 1. [Компонентная архитектура](docs/arch/01-component.md)
 2. [Схема межмодульного взаимодействия](docs/arch/02-integration.md)
 
-## Инфраструктура развертывания
+## Инфраструктура логирования и мониторинга
 
+#### Реализована на стеке ELK
+
+Настроены индексы
+
+* `app-logs-*` - количество обращений к сервису
+* `cpu-load-*` - утилизация cpu сервисом
+
+#### Подготовка образа сервиса
+
+* Задать env `PWD` - путь до каталога `deploy`
+* Собрать docker образ, используя команды
+  ```
+    cd ${PWD}
+    docker build -t otus-nginx:0.0.1 . 
+  ```
+
+#### Управление стендом
+
+* Выполнить для запуска
+
+  ```
+      cd ${PWD}
+      docker-compose up
+  ```
+
+* Выполнить для остановк
+
+  ```
+      cd ${PWD}
+      docker-compose down
+  ```
+
+* При необходимости тонкой настройки docker-compose
+  см. [документацию](https://docs.docker.com/engine/reference/commandline/compose_up/)
 
 ## UX/UI
-<img src="docs/img/speclib-ui.png" alt="speclib ui" />
 
-## Запуск и развертывание
-TODO
+<img src="docs/img/speclib-ui.png" alt="speclib ui" />
 
