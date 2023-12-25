@@ -13,7 +13,8 @@ pluginManagement {
         val kotlinVersion: String by settings
 
         kotlin("jvm") version kotlinVersion apply false
+        kotlin("multiplatform") version kotlinVersion apply false
     }
 }
 
-include("m1l1")
+include("m1l1", "m2-prepare")
