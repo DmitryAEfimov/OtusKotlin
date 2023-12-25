@@ -1,5 +1,12 @@
-rootProject.name = "kotlin.professional"
-include("m1l1")
+rootProject.name = "spec-lib"
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("gradle/libs.version.toml"))
+        }
+    }
+}
 
 pluginManagement {
     plugins {
@@ -8,3 +15,5 @@ pluginManagement {
         kotlin("jvm") version kotlinVersion apply false
     }
 }
+
+include("m1l1")

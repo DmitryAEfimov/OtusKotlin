@@ -1,0 +1,15 @@
+[versions]
+kotlinVersion="1.9.22"
+systemLambdaVersion="1.2.1"
+speclibVersion = "0.1.0-SNAPSHOT"
+junit5Version="5.10.1"
+
+[libraries]
+system-lambda={module="com.github.stefanbirkner:system-lambda", version.ref="systemLambdaVersion"}
+junit5-api={module="org.junit.jupiter:junit-jupiter-api", version.ref="junit5Version"}
+junit5-engine={module="org.junit.jupiter:junit-jupiter-engine", version.ref="junit5Version"}
+
+[bundles]
+junit5=["junit5-api", "junit5-engine"]
+
+[plugins]

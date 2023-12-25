@@ -2,9 +2,8 @@ plugins {
     kotlin("jvm")
 }
 
-val systemLambdaVersion: String by project
-
 dependencies {
-    testImplementation(kotlin("test-junit"))
-    testImplementation ("com.github.stefanbirkner:system-lambda:${systemLambdaVersion}")
+    testImplementation(libs.bundles.junit5)
+    testImplementation(libs.system.lambda)
+    testImplementation(kotlin("test"))
 }
