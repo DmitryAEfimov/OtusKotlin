@@ -17,4 +17,4 @@ pluginManagement {
     }
 }
 
-include("m1l1", "m2-prepare")
+include("m1l1", "api")
