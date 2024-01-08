@@ -3,13 +3,21 @@ kotlinVersion="1.9.22"
 systemLambdaVersion="1.2.1"
 speclibVersion = "0.1.0-SNAPSHOT"
 junit5Version="5.10.1"
+kotestVersion="5.8.0"
 
 [libraries]
 system-lambda={module="com.github.stefanbirkner:system-lambda", version.ref="systemLambdaVersion"}
 junit5-api={module="org.junit.jupiter:junit-jupiter-api", version.ref="junit5Version"}
 junit5-engine={module="org.junit.jupiter:junit-jupiter-engine", version.ref="junit5Version"}
+kotest-junit5={module="io.kotest:kotest-runner-junit5", version.ref="kotestVersion"}
+kotest-engine={module="io.kotest:kotest-framework-engine", version.ref="kotestVersion"}
+kotest-dataset={module="io.kotest:kotest-framework-datatest", version.ref="kotestVersion"}
+kotest-assertions-core={module="io.kotest:kotest-assertions-core", version.ref="kotestVersion"}
 
 [bundles]
 junit5=["junit5-api", "junit5-engine"]
+kotest=["kotest-engine", "kotest-dataset", "kotest-assertions-core"]
 
 [plugins]
+kotlin-multiplatform={id="org.jetbrains.kotlin.multiplatform", version.ref = "kotlinVersion" }
+kotest-multiplatform={id="io.kotest.multiplatform", version.ref="kotestVersion"}
